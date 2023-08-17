@@ -300,7 +300,7 @@
 
     }
 
-    $.fn.outterTagHtml = function() {
+    $.fn.outerTagHtml = function() {
         let tagname = this.prop('tagName').toLowerCase();
         let html = '<' + tagname;
         $.each(this.get(0).attributes, function() {
