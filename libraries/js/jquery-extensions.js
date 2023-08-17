@@ -41,14 +41,14 @@
         ]);
     };
 
-    $.fn.positionPlacement = function (elm_Offset, placement) {
-        let host = elm_Offset;
+    $.fn.positionPlacement = function (elm_offset, placement) {
+        let host = elm_offset;
 
         if (host instanceof HTMLElement)
             host = $(host).absRelOffset();
         else if (host instanceof $.fn.init)
             host = host.absRelOffset();
-        else if(!(host instanceof $.offset))
+        else if(!(host instanceof $.Offset))
             throw new TypeError("hostElmOffset has to be an offset, jQuery object, or an HTMLElement");
 
 
@@ -129,7 +129,7 @@
             host = $(host).absRelOffset();
         else if (host instanceof $.fn.init)
             host = host.absRelOffset();
-        else if(!(host instanceof $.offset))
+        else if(!(host instanceof $.Offset))
             throw new TypeError("hostElmOffset has to be an offset, jQuery object, or an HTMLElement");
 
         let target = this.absRelOffset();
@@ -211,7 +211,7 @@
         }
 
         let offset = this.offset();
-        let $doc = $(documnet);
+        let $doc = $(document);
         let bodyPos = outerPosition($(document.body));
 
         return new $.Offset([
@@ -222,14 +222,14 @@
         ])
     }
 
-    $.fn.fixedPositionPlacement = function(elm, placement) {
-        let host = elm;
+    $.fn.fixedPositionPlacement = function(elm_offset, placement) {
+        let host = elm_offset;
 
         if(host instanceof HTMLElement)
             host = $(host).fixedOffset();
         else if(host instanceof $.fn.init)
             host = host.fixedOffset();
-        else if(!(host instanceof $.offset))
+        else if(!(host instanceof $.Offset))
             throw new TypeError("elm must be either an offset, a jQuery object, or an HTMLElement")
 
         let target = this.fixedOffset();
