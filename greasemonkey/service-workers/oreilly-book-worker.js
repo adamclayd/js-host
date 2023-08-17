@@ -30,7 +30,8 @@ onconnect = function (ev) {
                 let download = downloads[msg.key];
                 let progress = {
                     value: Math.floor((download.pages.length / download.numPages) * 100),
-                    numPages: download.pages.length
+                    numPages: download.pages.length,
+                    aborted: download.aborted
                 }
 
                 port.postMessage({action: 'report-progress', progress: progress});
