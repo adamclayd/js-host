@@ -199,24 +199,13 @@
     };
 
     $.fn.fixedOffset = function() {
-        let outerPosition = function(jq) {
-            let margin = jq.margin();
-            let padding = jq.padding();
-            let border = jq.border();
-
-            return {
-                x: margin.left + padding.left + border.left,
-                y: margin.top + padding.top + border.top
-            }
-        }
 
         let offset = this.offset();
         let $doc = $(document);
-        let bodyPos = outerPosition($(document.body));
 
         return new $.Offset([
-            offset.top - $doc.scrollTop() + bodyPos.y,
-            offset.left - $doc.scrollLeft() + bodyPos.x,
+            offset.top - $doc.scrollTop(),
+            offset.left - $doc.scrollLeft(),
             this[0].offsetWidth,
             this[0].offsetHeight
         ])
