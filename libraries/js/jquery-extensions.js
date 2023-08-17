@@ -25,7 +25,7 @@
         }
 
         get height() {
-            return this.height();
+            return this.#height;
         }
     };
 
