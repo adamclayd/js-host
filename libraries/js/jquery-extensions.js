@@ -208,8 +208,8 @@
             offset.left - $doc.scrollLeft(),
             this[0].offsetWidth,
             this[0].offsetHeight
-        ])
-    }
+        ]);
+    };
 
     $.fn.fixedPositionPlacement = function(elm_offset, placement) {
         let host = elm_offset;
@@ -287,7 +287,7 @@
             y: top
         };
 
-    }
+    };
 
     $.fn.outerTagHtml = function() {
         let tagname = this.prop('tagName').toLowerCase();
@@ -299,5 +299,5 @@
         if(tagname !== 'hr' && tagname !== 'br' && tagname !== 'hr' && tagname !== 'input' && tagname !== 'link' && tagname !== 'meta' && tagname !== 'img' && tagname !== 'base')
             html += this.html() + '</' + tagname + '>';
         return html;
-    }
+    };
 })(jQuery);
