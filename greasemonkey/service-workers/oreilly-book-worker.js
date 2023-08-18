@@ -30,20 +30,14 @@ onconnect = function (ev) {
                 let download = downloads[msg.key];
                 let progress = {
                     value: Math.floor((download.pages.length / download.numPages) * 100),
-                    numPages: download.pages.length,
-                    aborted: download.aborted
+                    numPages: download.pages.length
                 }
 
                 port.postMessage({action: 'report-progress', progress: progress});
             }
             else {
-                port.postMessage({action: 'report-progress', progress: {}});
+                port.postMessage({action: 'report-progress', progress: null});
             }
-        }
-        else if(msg.action === 'abort-download') {
-            let download = downloads[msg.key];
-            if(download)
-                download.aborted = true;
         }
         else if(msg.action === 'add-page') {
             let download = downloads[msg.key];
