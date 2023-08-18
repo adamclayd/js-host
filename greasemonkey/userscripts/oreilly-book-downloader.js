@@ -20,6 +20,7 @@
 (async function($) {
     'use strict';
 
+
     const base = "https://learning.oreilly.com";
     const tabTimeout = 3000;
     const storageKeyPart = 'orielyBookUrlPart';
